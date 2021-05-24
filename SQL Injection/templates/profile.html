@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='/stylesheets/style_profile.css')}}">
+{% endblock %}
+{% block body %}
+    <div class="profile_content">
+    <h1>Profile content</h1><br>
+    {% with messages = get_flashed_messages() %}
+         {% if messages %}
+               {% for message in messages %}
+                    <h5>{{ message }}</h5>
+               {% endfor %}
+         {% endif %}
+    {% endwith %}
+    <br>
+    <form class="logout" action="{{ url_for('logout') }}">
+        <input type="submit" name="logout" value="Log out">
+    </form>
+</div>
+{% endblock %}

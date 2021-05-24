@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='/stylesheets/style_login.css')}}">
+{% endblock %}
+{% block body %}
+    <form class="login_box" action="{{ url_for('login') }}" method="POST">
+    <h1>Login</h1><br>
+    {% with messages = get_flashed_messages() %}
+         {% if messages %}
+               {% for message in messages %}
+                    <h6>{{ message }}</h6>
+               {% endfor %}
+         {% endif %}
+    {% endwith %}
+    {% if error %}
+        <h6><strong>Error</strong>: {{error}}</h6>
+    {% endif %}
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <input type="submit" name="submit" value="Submit"><br>
+    <h5>New here?<br><a href="{{ url_for('register') }}">Register</a> Now!</h5>
+    </form>
+{% endblock %}

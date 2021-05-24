@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='/stylesheets/style_register.css')}}">
+{% endblock %}
+{% block body %}
+    <form class="register_form" action="{{ url_for('register') }}" method="POST">
+    <h1>Register</h1><br>
+    {% if error %}
+        <h6><strong>Error</strong>: {{error}}</h6>
+    {% endif %}
+    <input type="text" name="username" placeholder="Username">
+    <input type="text" name="firstname" placeholder="Firstname">
+    <input type="text" name="surname" placeholder="Surname">
+    <input type="password" name="password" placeholder="Password">
+    <input type="password" name="r_password" placeholder="Retype password">
+    <input type="submit" name="submit" value="Submit">
+</form>
+{% endblock %}

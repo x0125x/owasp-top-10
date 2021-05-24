@@ -1,0 +1,25 @@
+body {
+margin: 0;
+padding: 0;
+font-family: sans-serif;
+background: #1f1f1f;
+}
+
+.login_box, .profile_content {
+width: 20%;
+height: 60%;
+padding: 0;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background: none;
+text-align: center;
+}
+
+.login_box, .profile_content, .register_form h1, h5, h6 {
+color: #2bc43d;
+text-transform: uppercase;
+font-weight: 200;
+letter-spacing: 3px;
+}
