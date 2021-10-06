@@ -10,7 +10,7 @@ With this method of accessing the database:
 "SELECT * FROM user WHERE username='" + username + "' AND password='" + password + "'" ,
 any provided input can result in modifying the inquiry. This can be dangerous, especially when modifying the inquiry to "A or B" statement, of which only one part has to return True.
 
-See that when using the ' OR '1'='1 as your login and password, you gain the access even without such user being previously added to the database. That is because as soon as the statement passes one True (like 1=1), the further validation is skipped and data is pulled out from the database. No further validation, to check whether the credentials provided by the user and those existing in the database are identical, is implemented in the code.
+Notice that when using the ' OR '1'='1 as your login and password, you gain the access even without such user being previously added to the database. That is because as soon as the statement passes one 'True' (like 1=1), the further validation is skipped and data is pulled out from the database. No further validation, to check whether the credentials provided by the user and those existing in the database are identical, is implemented in the code.
 
 To eliminate the vulnerability, the line should be replaced by:
 "SELECT * FROM user WHERE username=? AND password=?", (username, password) ,
